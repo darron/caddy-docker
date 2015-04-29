@@ -1,4 +1,6 @@
-FROM octohost/caddy:0.5.0-dev
+FROM darron/caddy:0.5.0-dev
+
+RUN mkdir /srv
 
 ADD . /srv
 

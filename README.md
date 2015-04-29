@@ -1,16 +1,24 @@
 caddy-docker
 ==============
 
-A Docker image for [Caddy](https://caddyserver.com/) - the base image is built like this:
+A Docker image for [Caddy](https://caddyserver.com/). The container was built with this command:
+
+`docker build -t darron/caddy:0.5.0-dev .`
+
+From this `Dockerfile`:
 
 ```
-FROM octohost/base:trusty
+FROM mini/base
 
-RUN curl -sLO http://shared.froese.org/2015/caddy && mv caddy /usr/bin/caddy && chmod 755 /usr/bin/caddy
+RUN curl -sLO http://shared.froese.org/2015/caddy-static && mv caddy-static /usr/bin/caddy && chmod 755 /usr/bin/caddy
 ```
 
-I compiled from src because of [this issue](https://github.com/mholt/caddy/issues/13) which wasn't fixed in the 0.5.0 release.
+I compiled from src because of [this issue](https://github.com/mholt/caddy/issues/13) which wasn't fixed in the 0.5.0 release and to statically link the binary.
 
-With this command:
+Binary was built like this:
 
-`docker build -t octohost/caddy:0.5.0-dev .`
+```
+go get github.com/mholt/caddy
+cd $GOROOT/src/github.com/mholt/caddy
+CGO_ENABLED=0 go build -a -installsuffix cgo
+```
