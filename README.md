@@ -1,7 +1,7 @@
 caddy-docker
 ==============
 
-A Docker image for [Caddy]() - the base image is built like this:
+A Docker image for [Caddy](https://caddyserver.com/) - the base image is built like this:
 
 ```
 FROM octohost/base:trusty
