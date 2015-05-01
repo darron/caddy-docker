@@ -1,4 +1,4 @@
-FROM darron/caddy:0.5.0-dev
+FROM darron/caddy
 
 RUN mkdir /srv
 
