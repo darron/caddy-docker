@@ -1,6 +1,8 @@
 caddy-docker
 ==============
 
+<a href='https://imagelayers.io/?images=darron/caddy:latest' title='Get your own badge on imagelayers.io'><img src='https://badge.imagelayers.io/darron/caddy.svg'></a>
+
 A Docker image for [Caddy](https://caddyserver.com/). The container was built with this command:
 
 `docker build -t darron/caddy .`
